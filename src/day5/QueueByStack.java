@@ -4,25 +4,52 @@ import java.util.Stack;
 
 /**
  * 用两个栈实现一个队列
+ *
+ * 通过
  */
 
 class Solution {
-    private Stack<Integer> stack1 = new Stack<Integer>();
-    private Stack<Integer> stack2 = new Stack<Integer>();
+    private Stack<Integer> stack1;
+    private Stack<Integer> stack2;
 
-    //入栈
-    public void push(int node) {
-        stack1.push(node);
+    public Solution() {
+        stack1 = new Stack();
+        stack2 = new Stack();
     }
 
-    //出栈
+
+    /** Push element x to the back of queue. */
+    public void push(int x) {
+        stack1.push(x);
+    }
+
+    /** Removes the element from in front of queue and returns that element. */
     public int pop() {
-        while (!stack1.isEmpty()) {
-            int tmp = stack1.peek();
-            stack1.pop();
-            stack2.push(tmp);
+        if(stack2.isEmpty()){
+            while (!stack1.isEmpty()) {
+                int tmp = stack1.peek();
+                stack1.pop();
+                stack2.push(tmp);
+            }
         }
         return stack2.pop();
+    }
+
+    /** Get the front element. */
+    public int peek() {
+        if(stack2.isEmpty()){
+            while (!stack1.isEmpty()) {
+                int tmp = stack1.peek();
+                stack1.pop();
+                stack2.push(tmp);
+            }
+        }
+        return stack2.peek();
+    }
+
+    /** Returns whether the queue is empty. */
+    public boolean empty() {
+        return stack1.isEmpty() && stack2.isEmpty();
     }
 }
 
