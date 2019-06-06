@@ -3,6 +3,13 @@ package day13;
 import java.math.BigInteger;
 import java.util.Scanner;
 
+
+/**
+ * 大数相加
+ * 利用BigInteger类
+ *
+ * 通过
+ */
 class Main1{
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
