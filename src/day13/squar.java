@@ -2,6 +2,11 @@ package day13;
 
 import java.util.*;
 
+/**
+ * 打印正方形
+ *
+ * 通过
+ */
  class Main{
     public static void main(String[] args){
 
